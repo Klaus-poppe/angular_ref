@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div style="text-align:center">
+        <h1>
+          Welcome to {{ title }}!
+        </h1>
+      </div>
+      
+      
+
+
+      <label>Enter name : </label><br>
+      <input type = "text"  [(ngModel)]="name"><br><br>
+     
+      <label>Enter age : </label><br>
+      <input type = "number"  [(ngModel)]="age"><br><br>
+
+      <label>Enter preference : </label> 
+      &nbsp;
+      <select [(ngModel)] = "choice" >
+        <option *ngFor = "let choice of choices " [value]="choice"  >{{choice}}</option>
+      </select><br><br>
+
+      <label>Add to preferences</label><br>
+      <input type = "text"  (input) = onUpdate($event)>&nbsp;
+      <button *ngIf = 'addBtn' class="btn btn-primary" (click)="addToList()"> add</button><br><br>
+
+      
+      <button class="btn btn-primary" (click)="showDetails()"> Submit </button><br><br>
+
+
+      <p *ngIf = "info; else noData">{{name}} is {{age}} years old and likes {{choice}}</p>
+      <!-- <ng-template #noData> <p>enter something bitch</p> </ng-template> -->
+      <!-- <p *ngIf = "!submit">Enter something bitch</p> -->
+      <p *ngIf = "warn">Enter something bitch</p>
+      
+
+
+      <app-rand></app-rand>
+      
+    
+    </div>
+  </div>
+</div>
+
+
